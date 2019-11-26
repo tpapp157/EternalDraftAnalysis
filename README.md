@@ -9,8 +9,8 @@ The Draft format forces players to build their decks one card at a time from a v
 
 ## Our Dataset
 
-Conveniently for us, some of the top Eternal draft players have been compiling a list of their most successful draft decks over the last ~6 months. As they play Draft, any deck which achieves a full 7 wins is added to the list in the form of a deck link to the community deckbuilding website www.EternalWarcry.com. From these links, we can decode the exact cards included in each deck. The dataset can be found as several Excel files at this website under the OneDrive link:
-http://farmingeternal.azurewebsites.net/
+Conveniently for us, some of the top Eternal draft players have been compiling a list of their most successful draft decks over the last ~6 months. As they play Draft, any deck which achieves a full 7 wins is added to the list in the form of a deck link to the community deckbuilding website www.EternalWarcry.com. From these links, we can decode the exact cards included in each deck. The dataset can be found as several Excel files at [this website](http://farmingeternal.azurewebsites.net/) under the OneDrive link. I've extracted just the deck lists we need into [EWlinks.csv](../master/EWlinks.csv).
+
 
 Using this dataset of successful draft decks we will first try to understand card selecting trends and what constitutes a good deck and then we will use this knowledge to design a simple AI that can intelligently draft a reasonable deck. One final note, the overall pool of cards available in the Draft format is regularly changed by the game developers every few months to keep the challenge fresh for players. The dataset above includes decks from several of these previous cycles, but we’ll be restricting our analysis to only the currently running Draft cycle called “The Flame of Xulta” which began just over a month ago in early October. Unfortunately, out of the thousands of deck lists this limits us to only using the ~140 most recent decks (although this amount should grow and improve our results over time until a new cycle begins and we must start over).
 
