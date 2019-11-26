@@ -20,7 +20,7 @@ For this analysis, we’ll be using many techniques common in Natural Language P
 
 We start by building our dictionary of every card included in the dataset and assign each a sequential numeric ID. We’ll use these IDs to convert each deck list into a card count vector and use the overall dataset to build a TF-IDF matrix. This matrix tells us how common a card in a deck is chosen relative to how commonly it’s selected overall. Since Sigils (basic power cards) are not included in the draft, we remove them from the deck lists so they don’t influence our analysis. With the TF-IDF matrix, we’ll use Non-negative Matrix Factorization (NMF) to extract common “topics” or deck trends. NMF is a dimension reduction technique based on co-occurrence similarities between cards. With some manual tuning, I settled on 20 NMF components as providing good results. In NLP, NMF is often used for extracting shared topics from document datasets but in our case the equivalent is deck types. Each NMF component captures the importance of every card in our dictionary to a particular deck type. In the table below, I’ve broken down each NMF component based on the percentage of cards it contains from the different color factions and we can quickly see how different components focus on individual factions or combinations of factions. It’s important to remember that decks aren’t exclusively defined by a single component but typically a combination of several related components.
 
-[../images/NMFtable.png]
+![](../master/images/NMFtable.png)
 
 Most of the components capture faction pairs which are quite commonly played. Interestingly, each faction has an exclusive component (1, 3, 15, 18) except for Primal/Blue which may suggest that faction is relatively weak in the current cycle and unable to form the core of a deck on its own. Also note how Time/Yellow is significantly represented in 11 different components compared with 2 for Primal/Blue.
 
@@ -49,7 +49,7 @@ Since each component encodes the importance of every card in our dictionary for 
 
 We can even use UMAP to plot the decks in our dataset in 2D space to get a visual feel for how these different deck types relate to each other. In the plot below, each point represents a deck in our dataset and is colored according to the relative mix of factions it includes.
 
-[..\images\UMAPdecks.png]
+![](../master/images/UMAPdecks.png)
 
 
 ## Define Good Decks
