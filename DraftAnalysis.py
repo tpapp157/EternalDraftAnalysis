@@ -15,18 +15,23 @@ from sklearn.decomposition import LatentDirichletAllocation as LDA
 from sklearn.feature_extraction.text import TfidfTransformer
 
 #%%
-head = r'https://eternalwarcry.com/deck-builder?main='
-FEpath = 'FE_Sheets'
-for _,_,files in os.walk(FEpath):
-    break
-
+# =============================================================================
+# head = r'https://eternalwarcry.com/deck-builder?main='
+# FEpath = 'FE_Sheets'
+# for _,_,files in os.walk(FEpath):
+#     break
+# 
+# 
+# raw = []
+# EWlinks = []
+# for f in files:
+#     raw.append(pd.read_excel(os.path.join(FEpath, f), sheet_name='Decklists'))
+#     EWlinks += list(raw[-1]['Filtered'])
+# =============================================================================
 
 #%%
-raw = []
-EWlinks = []
-for f in files:
-    raw.append(pd.read_excel(os.path.join(FEpath, f), sheet_name='Decklists'))
-    EWlinks += list(raw[-1]['Filtered'])
+EWlinks = list(pd.read_csv('EWlinks.csv', header=None, index_col=None)[0])
+head = r'https://eternalwarcry.com/deck-builder?main='
 
 
 #%%
