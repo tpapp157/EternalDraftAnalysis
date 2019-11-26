@@ -16,7 +16,7 @@ from sklearn.feature_extraction.text import TfidfTransformer
 
 #%%
 head = r'https://eternalwarcry.com/deck-builder?main='
-FEpath = r'C:\Users\tpapp\Desktop\EternalDraft\FE_Sheets'
+FEpath = 'FE_Sheets'
 for _,_,files in os.walk(FEpath):
     break
 
@@ -47,7 +47,7 @@ for i in EWlinks:
 
 
 #%%
-with open(r'C:\Users\tpapp\Desktop\EternalDraft\eternal-cards.json', 'r') as f:
+with open('eternal-cards.json', 'r') as f:
     Cards = json.load(f)
 
 #%%
@@ -169,8 +169,8 @@ def KLdiv(D, C, T, tfidf, cent, ignore=[]):
 
 
 #%%
-Xpack = r'C:\Users\tpapp\Desktop\EternalDraft\XultaPack.csv'
-Epack = r'C:\Users\tpapp\Desktop\EternalDraft\XultaDraftPack.csv'
+Xpack = 'XultaPack.csv'
+Epack = 'XultaDraftPack.csv'
 Packs = [pd.read_csv(Xpack, index_col=None), pd.read_csv(Epack, index_col=None), pd.read_csv(Epack, index_col=None), pd.read_csv(Xpack, index_col=None)]
 Packs = [j[[(i in k) for i in j['Id']]] for j in Packs]
 
