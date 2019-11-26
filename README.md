@@ -70,7 +70,7 @@ Once the AI has drafted 48 cards, it then needs to downselect its final deck of 
 
 ## Results
 
-Since we know the cards which are available in the draft pool and their relative rarities, we can code up a simple function to sample from the card pool to build the random packs of 12 cards. In this case we ignore Legendary rarity cards because they’re too rare in our dataset to model appropriately. With this we can set up 12 AIs to draft against each other (where each AI chooses a card from a randomly generated pack and passes the remainder to the next AI). I’ve posted links below to the decks that the AIs drafted. Many of these actually look like pretty reasonable decks although some decks clearly failed to converge to something meaningful. Most also feature a pretty good power curve and mix of units and spells. Overall fairly impressive results for such a simple approach.
+Since we know the cards which are available in the draft pool and their relative rarities, we can code up a simple function to sample from the card pool to build the random packs of 12 cards. In this case we ignore Legendary rarity cards because they’re too rare in our dataset to model appropriately. With this we can set up 12 AIs to draft against each other (where each AI chooses a card from a randomly generated pack and passes the remainder to the next AI). I’ve posted links below to the decks that the AIs drafted.
 
 1.	https://eternalwarcry.com/deck-builder?main=1-126:6;1-249:6;1-63:1;1-276:1;5-172:1;1-187:2;5-196:1;5-78:1;1-171:1;5-246:1;1-504:1;1-141:1;3-241:1;6-136:2;6-189:1;0-58:1;7-127:1;7-134:1;7-62:1;7-87:1;7-137:1;7-145:1;7-136:1;7-65:1;7-86:1;7-197:2;7-77:1;4-238:1;7-204:1;7-100:1;7-121:1;7-135:1
 2.	https://eternalwarcry.com/deck-builder?main=1-249:7;1-63:1;1-1:7;5-5:1;6-189:1;6-5:1;6-230:1;0-60:1;7-127:2;7-147:1;4-12:1;1-266:1;7-16:2;7-48:1;7-136:1;7-25:1;7-130:2;7-7:1;7-8:1;0-35:1;0-36:1;7-17:1;1-302:1;7-5:1;1-55:1;1-12:1;2-156:1;7-29:1;7-170:1;7-169:1
@@ -84,6 +84,8 @@ Since we know the cards which are available in the draft pool and their relative
 10.	https://eternalwarcry.com/deck-builder?main=1-126:1;1-249:2;1-63:6;4-216:1;1-187:6;1-193:1;5-241:1;5-91:1;5-134:1;3-63:1;1-407:1;7-37:1;7-51:1;1-69:1;7-131:1;7-48:1;7-138:1;7-105:1;7-181:1;7-101:1;7-118:1;1-100:2;7-55:1;7-179:1;1-415:1;7-36:1;0-33:1;7-178:1;7-104:1;7-111:1;3-171:1;1-360:1;3-106:1
 11.	https://eternalwarcry.com/deck-builder?main=1-126:1;1-249:2;1-63:1;1-187:1;1-1:10;1-193:1;1-31:1;1-321:1;3-63:1;6-21:1;6-1:1;2-28:1;7-62:1;7-6:2;4-12:1;7-28:2;7-25:1;7-7:2;0-36:1;4-27:1;7-17:1;7-22:1;1-55:1;7-125:1;1-17:1;7-170:1;0-3:1;2-194:1;0-6:1;7-203:1;1-72:1;7-4:1
 12.	https://eternalwarcry.com/deck-builder?main=2-68:1;1-126:2;1-249:2;1-63:5;1-187:5;1-1:1;5-241:1;3-154:1;1-336:1;1-213:1;6-46:1;6-91:1;6-137:1;6-149:1;6-150:1;7-124:1;4-64:1;7-51:1;7-43:1;7-24:1;7-131:1;7-138:1;7-35:1;7-49:1;7-59:1;1-80:1;7-5:1;7-95:1;7-76:1;1-196:1;7-183:1;1-208:1;7-92:1;7-111:1;3-106:1
+
+Many of these actually look like pretty reasonable decks although some decks clearly failed to converge to something meaningful. Most also feature a pretty good power curve and mix of units and spells. Overall fairly impressive results for such a simple approach.
 
 
 ## Next Steps
