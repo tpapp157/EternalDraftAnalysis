@@ -109,17 +109,17 @@ Xidf = tfidf.transform(X)
 temp_color = deck_color[3635:,:]
 
 #%%
-N = NMF(n_components=20).fit(Xidf)
+N = NMF(n_components=16).fit(Xidf)
 c = N.components_
 C = N.transform(Xidf)
-U = UMAP(n_neighbors=60).fit_transform(C)
+U = UMAP(n_neighbors=60, metric='braycurtis').fit_transform(C)
 plt.scatter(U[:,0],U[:,1],c=temp_color/255*1.5)
 
 factions = np.matmul(C.T, deck_inf[3635:,:])
 factions = factions / np.sum(factions, axis=1, keepdims=True)
 
 #%%
-H = HDBSCAN(min_cluster_size=3).fit(C)
+H = HDBSCAN(min_cluster_size=5, metric='braycurtis').fit(C)
 cent = []
 for i in range(H.labels_.max()+1):
     cent.append(np.median(C[H.labels_==i, :], axis=0))
