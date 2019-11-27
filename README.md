@@ -44,9 +44,10 @@ Since each component encodes the importance of every card in our dictionary for 
 16.	https://eternalwarcry.com/deck-builder?main=7-56:1;7-40:1;7-49:1;7-51:1;7-36:1;7-173:1;1-75:1;7-46:1;4-64:1;2-50:1;7-37:1;6-82:1;1-69:1
 
 
-We can even use UMAP to plot the decks in our dataset in 2D space to get a visual feel for how these different deck types relate to each other. In the plot below, each point represents a deck in our dataset and is colored according to the relative mix of factions it includes.
+We can even use UMAP to plot the decks in our dataset in 2D space to get a visual feel for how these different deck types relate to each other. In the plot below, each point represents a deck in our dataset and is colored according to the relative mix of factions it includes. In the second plot, I've circled the general regions where different factions play a significant portion of decks.
 
 ![](../master/images/UMAPdecks.png)
+![](../master/images/UMAPdecks_note.png)
 
 
 ## Define Good Decks
