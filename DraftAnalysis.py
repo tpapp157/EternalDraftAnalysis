@@ -113,6 +113,9 @@ N = NMF(n_components=16).fit(Xidf)
 c = N.components_
 C = N.transform(Xidf)
 U = UMAP(n_neighbors=60, metric='braycurtis').fit_transform(C)
+
+plt.figure(1)
+plt.clf()
 plt.scatter(U[:,0],U[:,1],c=temp_color/255*1.5)
 
 factions = np.matmul(C.T, deck_inf[3635:,:])
