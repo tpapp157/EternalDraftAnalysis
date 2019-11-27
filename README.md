@@ -12,7 +12,7 @@ The Draft format forces players to build their decks one card at a time from a v
 Conveniently for us, some of the top Eternal draft players have been compiling a list of their most successful draft decks over the last ~6 months. As they play Draft, any deck which achieves a full 7 wins is added to the list in the form of a deck link to the community deckbuilding website www.EternalWarcry.com. From these links, we can decode the exact cards included in each deck. The dataset can be found as several Excel files at [this website](http://farmingeternal.azurewebsites.net/) under the OneDrive link. I've extracted just the deck lists we need into [EWlinks.csv](../master/EWlinks.csv).
 
 
-Using this dataset of successful draft decks we will first try to understand card selecting trends and what constitutes a good deck and then we will use this knowledge to design a simple AI that can intelligently draft a reasonable deck. One final note, the overall pool of cards available in the Draft format is regularly changed by the game developers every few months to keep the challenge fresh for players. The dataset above includes decks from several of these previous cycles, but we’ll be restricting our analysis to only the currently running Draft cycle called “The Flame of Xulta” which began just over a month ago in early October. Unfortunately, out of the thousands of deck lists this limits us to only using the ~140 most recent decks (although this amount should grow and improve our results over time until a new cycle begins and we must start over).
+Using this dataset of successful draft decks we will first try to understand card selecting trends and what constitutes a good deck and then we will use this knowledge to design a simple AI that can intelligently draft a reasonable deck. One final note, the overall pool of cards available in the Draft format is regularly changed by the game developers every few months to keep the challenge fresh for players. The dataset above includes decks from several of these previous cycles, but we’ll be restricting our analysis to only the currently running Draft cycle called “The Flame of Xulta” which began just over a month ago in early October. Unfortunately, out of the thousands of deck lists this limits us to only using the ~300 most recent decks (although this amount should grow and improve our results over time until a new cycle begins and we must start over).
 
 ## Analyze the Dataset
 
@@ -29,7 +29,7 @@ Since each component encodes the importance of every card in our dictionary for 
 1.	https://eternalwarcry.com/deck-builder?main=7-78:1;7-62:1;7-70:1;7-87:1;2-70:1;7-86:1;7-65:1;7-64:1;6-91:1;5-252:1;1-150:1;7-173:1;1-147:1;7-79:1
 2.	https://eternalwarcry.com/deck-builder?main=7-157:1;1-31:1;7-23:1;7-5:1;7-22:1;6-5:1;7-65:1;5-10:1;4-12:1
 3.	https://eternalwarcry.com/deck-builder?main=7-170:1;7-17:1;7-130:1;1-392:1;7-5:1;5-236:1;4-22:1;7-22:1;7-27:1;7-7:1;7-6:1;7-134:1;5-10:1;7-16:1;7-168:1;7-12:1
-4.	https://eternalwarcry.com/deck-builder?main=7-73:1;7-63:1;7-89:1;6-118:1;4-133:1;7-64:1;1-114:1;1-80:1;2-70:1
+4.	https://eternalwarcry.com/deck-builder?main=7-56:1;7-40:1;7-49:1;7-51:1;7-36:1;7-173:1;1-75:1;7-46:1;4-64:1;2-50:1;7-37:1;6-82:1;1-69:1
 5.	https://eternalwarcry.com/deck-builder?main=7-181:1;7-113:1;7-102:1;7-98:1;7-106:1;7-118:1;7-96:1;5-241:1;7-114:1;7-100:1;4-57:1;7-101:1;7-50:1;7-35:1;7-55:1;1-203:1
 6.	https://eternalwarcry.com/deck-builder?main=6-213:1;7-137:1;7-127:1;7-134:1;7-145:1;7-126:1;7-147:1;6-189:1;7-197:1;7-142:1;6-197:1;7-143:1;7-129:1;7-136:1;7-131:1;1-270:1
 7.	https://eternalwarcry.com/deck-builder?main=7-174:1;7-87:1;7-62:1
@@ -38,10 +38,10 @@ Since each component encodes the importance of every card in our dictionary for 
 10.	https://eternalwarcry.com/deck-builder?main=7-43:1;7-39:1;1-101:1;1-505:1;7-175:1
 11.	https://eternalwarcry.com/deck-builder?main=7-203:1;7-136:1;7-125:1;7-109:1;7-120:1;7-137:1;7-96:1;3-202:1;5-231:1;7-118:1;1-203:1
 12.	https://eternalwarcry.com/deck-builder?main=7-57:1;7-38:1;7-140:1;1-265:1;7-123:1;6-219:1;1-396:1;3-220:1;4-204:1;1-302:1;7-31:1;5-181:1;6-226:1;4-53:1;1-264:1;3-212:1;5-42:1;7-48:1;7-145:1;1-503:1;6-210:1;7-126:1;7-127:1
-13.	https://eternalwarcry.com/deck-builder?main=7-192:1;7-96:1;2-217:1;6-136:1;7-193:1;7-211:1;7-89:1;3-106:1;7-191:1
-14.	https://eternalwarcry.com/deck-builder?main=5-78:1;1-38:1;5-7:1;7-14:1;7-79:1;7-75:1;5-14:1;7-25:1;7-78:1;3-18:1;7-20:1;5-81:1;7-8:1;4-142:1;6-97:1;6-26:1;5-87:1
-15.	https://eternalwarcry.com/deck-builder?main=7-185:1;5-222:1;7-126:1;7-129:1;6-46:1;7-134:1;7-45:1;7-188:1;1-278:1;7-125:1;7-131:1;7-48:1;2-35:1;1-261:1;7-33:1;7-51:1;7-55:1;4-60:1;6-69:1;7-143:1;2-149:1;6-198:1;7-140:1;4-238:1;1-254:1
-16.	https://eternalwarcry.com/deck-builder?main=7-56:1;7-40:1;7-49:1;7-51:1;7-36:1;7-173:1;1-75:1;7-46:1;4-64:1;2-50:1;7-37:1;6-82:1;1-69:1
+13.	https://eternalwarcry.com/deck-builder?main=7-73:1;7-63:1;7-89:1;6-118:1;4-133:1;7-64:1;1-114:1;1-80:1;2-70:1
+14.	https://eternalwarcry.com/deck-builder?main=5-78:1;1-38:1;5-7:1;7-14:1;7-79:1;7-75:1;5-14:1;7-25:1;7-78:1;7-20:1;3-18:1;5-81:1;7-8:1;4-142:1;6-97:1;6-26:1;5-87:1
+15.	https://eternalwarcry.com/deck-builder?main=7-185:1;5-222:1;7-126:1;7-129:1;6-46:1;7-134:1;7-45:1;7-188:1;1-278:1;7-125:1;7-131:1;2-35:1;7-48:1;1-261:1;7-33:1;7-51:1;7-55:1;4-60:1;6-69:1;7-143:1;6-198:1;4-238:1;2-149:1;7-140:1;1-254:1
+16.	https://eternalwarcry.com/deck-builder?main=7-192:1;7-96:1;2-217:1;6-136:1;7-193:1;7-211:1;7-89:1;3-106:1;7-191:1
 
 
 We can even use UMAP to plot the decks in our dataset in 2D space to get a visual feel for how these different deck types relate to each other. In the plot below, each point represents a deck in our dataset and is colored according to the relative mix of factions it includes. In the second plot, I've circled the general regions where different factions play a significant portion of decks.
